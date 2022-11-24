@@ -10,8 +10,20 @@ class LtfmEditProfileView extends StatefulWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("LtfmEditProfile"),
-        actions: const [
+        actions: [
           //! 4. Tambahkan tombol Save
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueGrey,
+              ),
+              onPressed: () {
+                controller.save();
+              },
+              child: const Text("Save"),
+            ),
+          ),
           //! 5. Beri padding/margin pada tombol Save sebanyak 10
           //! 6. Panggil controller.save() ketika tombol di klik
         ],
@@ -20,12 +32,65 @@ class LtfmEditProfileView extends StatefulWidget {
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
               //! 1. Buat sebuah Card, tambahkan Column di dalamnya
               //! 2. Tambahkan padding.all 20.0
               //! 3. Di dalam column yang ada di dalam Card, tambahkan field ini:
               //? textfield email
               //? textfield password
+              Card(
+                child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(20),
+                      child: TextFormField(
+                        initialValue: 'admin@gmail.com',
+                        maxLength: 20,
+                        decoration: const InputDecoration(
+                          labelText: 'Email',
+                          labelStyle: TextStyle(
+                            color: Colors.blueGrey,
+                          ),
+                          suffixIcon: Icon(
+                            Icons.email,
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.blueGrey,
+                            ),
+                          ),
+                          helperText: 'Enter your email address',
+                        ),
+                        onChanged: (value) {},
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(20),
+                      child: TextFormField(
+                        initialValue: '123456',
+                        maxLength: 20,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          labelText: 'Password',
+                          labelStyle: TextStyle(
+                            color: Colors.blueGrey,
+                          ),
+                          suffixIcon: Icon(
+                            Icons.password,
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.blueGrey,
+                            ),
+                          ),
+                          helperText: 'Enter your password',
+                        ),
+                        onChanged: (value) {},
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),

@@ -99,6 +99,36 @@ class LtfmFilterDialogView extends StatefulWidget {
                           },
                         );
                         */
+                        await showDialog<void>(
+                          context: context,
+                          barrierDismissible: true,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: const Text('Filter'),
+                              content: SingleChildScrollView(
+                                child: ListBody(
+                                  children: <Widget>[
+                                    QDatePicker(
+                                        label: "From", onChanged: (v) {}),
+                                    QDatePicker(
+                                        label: "From", onChanged: (v) {})
+                                  ],
+                                ),
+                              ),
+                              actions: <Widget>[
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.blueGrey,
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text("Filter"),
+                                ),
+                              ],
+                            );
+                          },
+                        );
                         //! 2. Di dalam children dari ListBody,
                         //! Tambahkan field2 ini:
                         //? datepicker dengan label "from"

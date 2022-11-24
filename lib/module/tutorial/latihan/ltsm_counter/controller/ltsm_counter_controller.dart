@@ -24,4 +24,9 @@ class LtsmCounterController extends State<LtsmCounterView>
     counter++;
     setState(() {});
   }
+
+  decreaseCounter() {
+    counter--;
+    setState(() {});
+  }
 }

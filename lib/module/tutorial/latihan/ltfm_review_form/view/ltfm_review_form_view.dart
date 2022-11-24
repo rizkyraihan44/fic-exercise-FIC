@@ -29,12 +29,50 @@ class LtfmReviewFormView extends StatefulWidget {
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width,
                           child: ListBody(
-                            children: const <Widget>[
+                            children: <Widget>[
                               //! 6. Pindahkan textarea review, ratingbar, dan tombol review
+                              TextFormField(
+                                decoration: const InputDecoration(
+                                  labelText: 'Review',
+                                  labelStyle: TextStyle(
+                                    color: Colors.blueGrey,
+                                  ),
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Colors.blueGrey,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              RatingBar.builder(
+                                initialRating: 2.0,
+                                minRating: 1,
+                                direction: Axis.horizontal,
+                                allowHalfRating: true,
+                                itemCount: 5,
+                                itemSize: 28.0,
+                                itemBuilder: (context, _) => const Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                onRatingUpdate: (rating) {},
+                              ),
                               //!    yang berada di bawah ke dalam sini (di dalam children)
                               //! 7. Test fitur ini dengan klik tombol Rate di pojok kanan atas
                               //! 8. Jika popup tertutup setelah tombol review di klik,
                               //!    Tasks ini selesai
+                              const SizedBox(
+                                height: 30.0,
+                              ),
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.blueGrey,
+                                ),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text("Review"),
+                              ),
                             ],
                           ),
                         ),
@@ -51,8 +89,36 @@ class LtfmReviewFormView extends StatefulWidget {
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
               //! 1. Buat sebuah textarea "Review"
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Review',
+                  labelStyle: TextStyle(
+                    color: Colors.blueGrey,
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                  helperText: "What's your address",
+                ),
+                onChanged: (value) {},
+              ),
+              RatingBar.builder(
+                initialRating: 2.0,
+                minRating: 1,
+                direction: Axis.horizontal,
+                allowHalfRating: true,
+                itemCount: 5,
+                itemSize: 28.0,
+                itemBuilder: (context, _) => const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                onRatingUpdate: (rating) {},
+              ),
               //! 2. Tambahkan ratingbar setelah textarea review, gunakan kode ini:
               /*
               RatingBar.builder(
@@ -70,6 +136,18 @@ class LtfmReviewFormView extends StatefulWidget {
               ),
               */
               //! 3. Tambahkan SizedBox(height: 30),
+              const SizedBox(
+                height: 30.0,
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueGrey,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text("Review"),
+              ),
               //! 4. Tambahkan tombol "Review"
               //! 5. Tambahkan kode ini ketika tombol review di klik
               /*
